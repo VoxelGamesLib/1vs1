@@ -3,7 +3,6 @@ package me.minidigger.voxelgameslib.onevsone;
 import com.google.inject.Singleton;
 import javax.annotation.Nonnull;
 import javax.inject.Inject;
-import jskills.GameInfo;
 import me.minidigger.voxelgameslib.game.GameHandler;
 import me.minidigger.voxelgameslib.game.GameMode;
 import me.minidigger.voxelgameslib.module.Module;
@@ -16,8 +15,7 @@ import me.minidigger.voxelgameslib.module.ModuleInfo;
 @ModuleInfo(name = "1vs1", authors = "MiniDigger", version = "1.0.0")
 public class OneVsOneModule implements Module {
 
-  public static final GameMode GAMEMODE = new GameMode("1vs1", OneVsOneGame.class,
-      GameInfo.getDefaultGameInfo());
+  public static final GameMode GAMEMODE = new GameMode("1vs1", OneVsOneGame.class);
 
   @Inject
   private GameHandler gameHandler;
