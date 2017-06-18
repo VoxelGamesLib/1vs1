@@ -29,10 +29,4 @@ public class OneVsOneModule implements Module {
     public void disable() {
 
     }
-
-    @Nonnull
-    @Override
-    public ModuleInfo getModuleInfo() {
-        return getClass().getAnnotation(ModuleInfo.class); //TODO better module info handling
-    }
 }
