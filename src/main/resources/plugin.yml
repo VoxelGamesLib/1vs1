@@ -2,4 +2,4 @@ name: OneVsOne
 version: ${project.version}
 main: me.minidigger.voxelgameslib.onevsone.OneVsOnePlugin
 authors: [MiniDigger]
-loadbefore: [VoxelGamesLib]
+depends: [VoxelGamesLib]

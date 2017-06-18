@@ -23,7 +23,7 @@ public class OneVsOneGame extends AbstractGame {
     private WorldHandler worldHandler;
 
     public OneVsOneGame() {
-        super(OneVsOneModule.GAMEMODE);
+        super(OneVsOnePlugin.GAMEMODE);
     }
 
     @Override
