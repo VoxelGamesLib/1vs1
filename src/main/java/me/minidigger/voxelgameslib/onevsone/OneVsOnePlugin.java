@@ -21,6 +21,9 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     @Inject
     private GameHandler gameHandler;
 
+    @Inject
+    private OneVsOnePlugin plugin;//TEST
+
     @Override
     public void onLoad() {
         ModuleHandler.offerModule(this); // always do this first!
@@ -29,6 +32,7 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     @Override
     public void enable() {
         gameHandler.registerGameMode(GAMEMODE);
+        System.out.println("PLUGIN WAS " + plugin);
     }
 
     @Override
