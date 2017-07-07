@@ -28,6 +28,7 @@ public class OneVsOnePhase extends TimedPhase {
 
         SpawnFeature spawnFeature = getGame().createFeature(SpawnFeature.class, this);
         spawnFeature.setRespawn(false);
+        spawnFeature.setInitialSpawn(false);
         addFeature(spawnFeature);
 
         GameModeFeature gameModeFeature = getGame().createFeature(GameModeFeature.class, this);
