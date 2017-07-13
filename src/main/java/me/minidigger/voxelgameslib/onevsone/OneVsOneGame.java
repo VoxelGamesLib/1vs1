@@ -6,8 +6,7 @@ import me.minidigger.voxelgameslib.game.AbstractGame;
 import me.minidigger.voxelgameslib.game.GameDefinition;
 import me.minidigger.voxelgameslib.game.GameInfo;
 import me.minidigger.voxelgameslib.phase.phases.GracePhase;
-import me.minidigger.voxelgameslib.phase.phases.LobbyPhase;
-import me.minidigger.voxelgameslib.phase.phases.VotePhase;
+import me.minidigger.voxelgameslib.phase.phases.LobbyWithVotePhase;
 
 /**
  * Created by Martin on 28.01.2017.
@@ -24,16 +23,14 @@ public class OneVsOneGame extends AbstractGame {
         setMinPlayers(2);
         setMaxPlayers(2);
 
-        LobbyPhase lobbyPhase = createPhase(LobbyPhase.class);
-        VotePhase votePhase = createPhase(VotePhase.class);
+        LobbyWithVotePhase lobbyWithVotePhase = createPhase(LobbyWithVotePhase.class);
         GracePhase gracePhase = createPhase(GracePhase.class);
         OneVsOnePhase survivalGamesPhase = createPhase(OneVsOnePhase.class);
 
-        lobbyPhase.setNextPhase(votePhase);
-        votePhase.setNextPhase(gracePhase);
+        lobbyWithVotePhase.setNextPhase(gracePhase);
         gracePhase.setNextPhase(survivalGamesPhase);
 
-        activePhase = lobbyPhase;
+        activePhase = lobbyWithVotePhase;
 
         loadMap();
     }
