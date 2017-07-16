@@ -1,12 +1,12 @@
 package me.minidigger.voxelgameslib.onevsone;
 
+import me.minidigger.voxelgameslib.event.GameEvent;
 import me.minidigger.voxelgameslib.feature.AbstractFeature;
 import me.minidigger.voxelgameslib.feature.features.DuelFeature;
 import me.minidigger.voxelgameslib.user.User;
 import me.minidigger.voxelgameslib.utils.ItemBuilder;
 
 import org.bukkit.Material;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import jskills.Rating;
@@ -51,12 +51,10 @@ public class OneVsOneFeature extends AbstractFeature {
 
     }
 
-    @EventHandler
+    @GameEvent
     public void onDeath(PlayerDeathEvent e) {
-        if (getPhase().getGame().isPlaying(e.getEntity().getUniqueId())) {
-            DuelFeature duelFeature = getPhase().getFeature(DuelFeature.class);
-            getPhase().getGame().endGame(null, duelFeature.getOther(e.getEntity().getUniqueId()));
-        }
+        DuelFeature duelFeature = getPhase().getFeature(DuelFeature.class);
+        getPhase().getGame().endGame(null, duelFeature.getOther(e.getEntity().getUniqueId()));
     }
 
     @Override
