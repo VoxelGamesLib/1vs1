@@ -32,7 +32,6 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     @Override
     public void enable() {
         gameHandler.registerGameMode(GAMEMODE);
-        System.out.println("PLUGIN WAS " + plugin);
     }
 
     @Override
