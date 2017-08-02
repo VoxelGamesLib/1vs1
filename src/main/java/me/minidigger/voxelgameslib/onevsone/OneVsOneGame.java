@@ -25,6 +25,7 @@ public class OneVsOneGame extends AbstractGame {
 
         LobbyWithVotePhase lobbyWithVotePhase = createPhase(LobbyWithVotePhase.class);
         GracePhase gracePhase = createPhase(GracePhase.class);
+        gracePhase.setTicks(10 * 20);
         OneVsOnePhase survivalGamesPhase = createPhase(OneVsOnePhase.class);
 
         lobbyWithVotePhase.setNextPhase(gracePhase);
