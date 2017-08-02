@@ -20,6 +20,7 @@ repositories {
     maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
     maven { url 'https://oss.sonatype.org/content/groups/public/' }
     maven { url 'https://nexus.indices.io/content/groups/public/' }
+    maven { url "http://repo.onarandombox.com/content/groups/public/" }
 }
 
 dependencies {
@@ -63,11 +64,13 @@ artifacts {
 }
 
 signing {
-    required { !project.version.endsWith('-SNAPSHOT') && gradle.taskGraph.hasTask('uploadArchives') }
+    required {
+        !project.version.endsWith('-SNAPSHOT') && gradle.taskGraph.hasTask('uploadArchives')
+    }
     sign configurations.archives
 }
 
-if(project.hasProperty('indicesUsername') && project.hasProperty('indicesPassword')) {
+if (project.hasProperty('indicesUsername') && project.hasProperty('indicesPassword')) {
     uploadArchives {
         repositories {
             mavenDeployer {
