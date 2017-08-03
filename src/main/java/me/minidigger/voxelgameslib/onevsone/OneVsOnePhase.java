@@ -1,11 +1,11 @@
 package me.minidigger.voxelgameslib.onevsone;
 
-import me.minidigger.voxelgameslib.GameConstants;
-import me.minidigger.voxelgameslib.feature.features.DuelFeature;
-import me.minidigger.voxelgameslib.feature.features.GameModeFeature;
-import me.minidigger.voxelgameslib.feature.features.MapFeature;
-import me.minidigger.voxelgameslib.feature.features.SpawnFeature;
-import me.minidigger.voxelgameslib.phase.TimedPhase;
+import com.voxelgameslib.voxelgameslib.GameConstants;
+import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.GameModeFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.MapFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.SpawnFeature;
+import com.voxelgameslib.voxelgameslib.phase.TimedPhase;
 
 import org.bukkit.GameMode;
 

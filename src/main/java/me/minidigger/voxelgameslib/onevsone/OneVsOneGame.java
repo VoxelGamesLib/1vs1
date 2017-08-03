@@ -2,11 +2,11 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import javax.annotation.Nonnull;
 
-import me.minidigger.voxelgameslib.game.AbstractGame;
-import me.minidigger.voxelgameslib.game.GameDefinition;
-import me.minidigger.voxelgameslib.game.GameInfo;
-import me.minidigger.voxelgameslib.phase.phases.GracePhase;
-import me.minidigger.voxelgameslib.phase.phases.LobbyWithVotePhase;
+import com.voxelgameslib.voxelgameslib.game.AbstractGame;
+import com.voxelgameslib.voxelgameslib.game.GameDefinition;
+import com.voxelgameslib.voxelgameslib.game.GameInfo;
+import com.voxelgameslib.voxelgameslib.phase.phases.GracePhase;
+import com.voxelgameslib.voxelgameslib.phase.phases.LobbyWithVotePhase;
 
 /**
  * Created by Martin on 28.01.2017.

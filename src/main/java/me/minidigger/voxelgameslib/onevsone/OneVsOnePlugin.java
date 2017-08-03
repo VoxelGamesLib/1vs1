@@ -4,11 +4,11 @@ import com.google.inject.Singleton;
 
 import javax.inject.Inject;
 
-import me.minidigger.voxelgameslib.game.GameHandler;
-import me.minidigger.voxelgameslib.game.GameMode;
-import me.minidigger.voxelgameslib.module.Module;
-import me.minidigger.voxelgameslib.module.ModuleHandler;
-import me.minidigger.voxelgameslib.module.ModuleInfo;
+import com.voxelgameslib.voxelgameslib.game.GameHandler;
+import com.voxelgameslib.voxelgameslib.game.GameMode;
+import com.voxelgameslib.voxelgameslib.module.Module;
+import com.voxelgameslib.voxelgameslib.module.ModuleHandler;
+import com.voxelgameslib.voxelgameslib.module.ModuleInfo;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
