@@ -3,6 +3,7 @@ package me.minidigger.voxelgameslib.onevsone;
 import com.voxelgameslib.voxelgameslib.GameConstants;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.GameModeFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.KitFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.MapFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.SpawnFeature;
 import com.voxelgameslib.voxelgameslib.phase.TimedPhase;
@@ -40,5 +41,8 @@ public class OneVsOnePhase extends TimedPhase {
 
         DuelFeature duelFeature = getGame().createFeature(DuelFeature.class, this);
         addFeature(duelFeature);
+
+        KitFeature kitFeature = getGame().createFeature(KitFeature.class, this);
+        addFeature(kitFeature);
     }
 }

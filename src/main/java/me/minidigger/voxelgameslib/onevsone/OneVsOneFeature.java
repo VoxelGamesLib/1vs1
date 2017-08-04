@@ -28,12 +28,6 @@ public class OneVsOneFeature extends AbstractFeature {
                 r1.getMean() + "(" + r1.getStandardDeviation() + ")] duels "
                 + duelFeature.getTwo().getRawDisplayName() + "[" +
                 r2.getMean() + "(" + r2.getStandardDeviation() + ")]");
-
-        // TODO better items, lol
-        for (User user : new User[]{duelFeature.getOne(), duelFeature.getTwo()}) {
-            user.getPlayer().getInventory()
-                    .setItemInMainHand(new ItemBuilder(Material.DIAMOND_SWORD).build());
-        }
     }
 
     @Override
