@@ -36,6 +36,6 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
 
     @Override
     public void disable() {
-
+        System.out.println("test");
     }
 }
