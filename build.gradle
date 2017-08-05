@@ -12,10 +12,6 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-ext {
-    dev = true
-}
-
 defaultTasks 'clean', 'build'
 
 repositories {
@@ -47,62 +43,61 @@ compileJava {
     options.forkOptions.executable = 'javac'
 }
 
+task copyToServer(dependsOn: 'jar', type: Copy) {
+    from 'build/libs/1vs1-1.0-SNAPSHOT.jar'
+    into '../testserver/plugins/'
+}
 
-if (dev) {
-    task copyToServer(dependsOn: 'jar', type: Copy) {
-        from 'build/libs/1vs1-1.0-SNAPSHOT.jar'
-        into '../testserver/plugins/'
-    }
-} else {
-    task javadocJar(type: Jar) {
-        classifier 'javadoc'
-        from javadoc
-    }
+task javadocJar(type: Jar) {
+    classifier 'javadoc'
+    from javadoc
+}
 
-    task sourcesJar(type: Jar) {
-        classifier 'sources'
-        from sourceSets.main.allSource
-    }
+task sourcesJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allSource
+}
 
+if (!project.hasProperty("dev")) {
     artifacts {
         archives javadocJar
         archives sourcesJar
     }
+}
 
-    signing {
-        required {
-            !project.version.endsWith('-SNAPSHOT') && gradle.taskGraph.hasTask('uploadArchives')
-        }
-        sign configurations.archives
+signing {
+    required {
+        !project.version.endsWith('-SNAPSHOT') && gradle.taskGraph.hasTask('uploadArchives')
     }
+    sign configurations.archives
+}
 
-    if (project.hasProperty('indicesUsername') && project.hasProperty('indicesPassword')) {
-        uploadArchives {
-            repositories {
-                mavenDeployer {
-                    beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+if (project.hasProperty('indicesUsername') && project.hasProperty('indicesPassword')) {
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                    repository(url: 'https://nexus.indices.io/content/repositories/releases/') {
-                        authentication(userName: indicesUsername, password: indicesPassword)
+                repository(url: 'https://nexus.indices.io/content/repositories/releases/') {
+                    authentication(userName: indicesUsername, password: indicesPassword)
+                }
+
+                snapshotRepository(url: 'https://nexus.indices.io/content/repositories/snapshots/') {
+                    authentication(userName: indicesUsername, password: indicesPassword)
+                }
+
+                pom.project {
+                    name project.name
+
+                    issueManagement {
+                        system 'GitHub Issues'
+                        url 'https://github.com/VoxelGamesLib/1vs1/issues'
                     }
 
-                    snapshotRepository(url: 'https://nexus.indices.io/content/repositories/snapshots/') {
-                        authentication(userName: indicesUsername, password: indicesPassword)
-                    }
-
-                    pom.project {
-                        name project.name
-
-                        issueManagement {
-                            system 'GitHub Issues'
-                            url 'https://github.com/VoxelGamesLib/1vs1/issues'
-                        }
-
-                        scm {
-                            connection 'scm:git@github.com:VoxelGamesLib/1vs1.git'
-                            developerConnection 'scm:git@github.com:VoxelGamesLib/1vs1.git'
-                            url 'https://github.com/VoxelGamesLib/1vs1/'
-                        }
+                    scm {
+                        connection 'scm:git@github.com:VoxelGamesLib/1vs1.git'
+                        developerConnection 'scm:git@github.com:VoxelGamesLib/1vs1.git'
+                        url 'https://github.com/VoxelGamesLib/1vs1/'
                     }
                 }
             }
