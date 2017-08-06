@@ -4,6 +4,8 @@ import com.voxelgameslib.voxelgameslib.event.GameEvent;
 import com.voxelgameslib.voxelgameslib.feature.AbstractFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
 
+import javax.annotation.Nonnull;
+
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 import jskills.Rating;
@@ -43,12 +45,13 @@ public class OneVsOneFeature extends AbstractFeature {
     }
 
     @GameEvent
-    public void onDeath(PlayerDeathEvent e) {
+    public void onDeath(@Nonnull PlayerDeathEvent e) {
         DuelFeature duelFeature = getPhase().getFeature(DuelFeature.class);
         getPhase().getGame().endGame(null, duelFeature.getOther(e.getEntity().getUniqueId()));
     }
 
     @Override
+    @Nonnull
     public Class[] getDependencies() {
         return new Class[]{DuelFeature.class};
     }
