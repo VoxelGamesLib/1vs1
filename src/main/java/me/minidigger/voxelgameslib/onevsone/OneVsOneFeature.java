@@ -29,21 +29,6 @@ public class OneVsOneFeature extends AbstractFeature {
                 r2.getMean() + "(" + r2.getStandardDeviation() + ")]");
     }
 
-    @Override
-    public void stop() {
-
-    }
-
-    @Override
-    public void tick() {
-
-    }
-
-    @Override
-    public void init() {
-
-    }
-
     @GameEvent
     public void onDeath(@Nonnull PlayerDeathEvent e) {
         DuelFeature duelFeature = getPhase().getFeature(DuelFeature.class);
