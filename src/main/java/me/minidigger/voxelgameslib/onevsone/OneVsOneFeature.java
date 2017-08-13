@@ -1,15 +1,16 @@
 package me.minidigger.voxelgameslib.onevsone;
 
+import javax.annotation.Nonnull;
+
 import com.voxelgameslib.voxelgameslib.event.GameEvent;
 import com.voxelgameslib.voxelgameslib.feature.AbstractFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
 
-import javax.annotation.Nonnull;
-
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import jskills.Rating;
 import lombok.extern.java.Log;
+
+import jskills.Rating;
 
 /**
  * Created by Martin on 28.01.2017.
