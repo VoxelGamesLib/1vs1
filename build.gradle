@@ -19,8 +19,14 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "https://voxelgameslib.github.io/VoxelGamesLibv2/mvn-repo" }
-    maven { url 'https://hub.spigotmc.org/nexus/content/groups/public/' }
-    maven { url 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url "https://hub.spigotmc.org/nexus/content/groups/public/" }
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
+    maven { url "https://repo.aikar.co/content/groups/aikar/" }
+    maven { url "https://raw.githubusercontent.com/allanmc/JSkills/mvn-repo/" }
+    maven { url "http://dl.bintray.com/etienne/java-utilities" }
+    maven { url "http://repo.bstats.org/content/repositories/releases/" }
+    maven { url "http://repo.dmulloy2.net/content/groups/public/" }
+    maven { url "http://repo.maven.apache.org/maven2" }
     maven { url "http://repo.onarandombox.com/content/groups/public/" }
     maven { url "http://repo.inventivetalent.org/content/repositories/snapshots/" }
 }
