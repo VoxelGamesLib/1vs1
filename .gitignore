@@ -12,3 +12,5 @@ out/
 
 # JRebel <3
 rebel.xml
+
+pom.xml
