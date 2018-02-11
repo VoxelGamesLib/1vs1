@@ -20,6 +20,10 @@ cp -R build/libs/. deploy-stuff/1vs1
 mkdir deploy-stuff/mvn-repo/
 mvn deploy:deploy-file -Dfile=build/libs/1vs1-1.0-SNAPSHOT.jar -DpomFile=pom.xml  -Durl=file://${TRAVIS_BUILD_DIR}/deploy-stuff/mvn-repo
 
+# create index
+sudo pip install mako
+python scripts/make_index.py --header "VGL Deployments" deploy-stuff
+
 # deploy
 echo "commit repo"
 cd deploy-stuff
