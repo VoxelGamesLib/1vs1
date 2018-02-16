@@ -5,11 +5,6 @@ dependencies {
     compileOnly rootProject
 }
 
-task copyToServer(dependsOn: 'jar', type: Copy) {
-    from 'build/libs/1vs1-1.0-SNAPSHOT.jar'
-    into '../testserver/plugins/'
-}
-
 task createPom() {
     pom {
         project {
