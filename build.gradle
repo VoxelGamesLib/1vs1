@@ -1,78 +1,13 @@
-plugins {
-    id 'java'
-    id 'maven'
-    id 'signing'
-    id 'com.github.ben-manes.versions' version '0.17.0'
-}
-
-import org.apache.tools.ant.filters.ReplaceTokens
-
 group 'me.minidigger'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-defaultTasks 'clean', 'build'
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "https://voxelgameslib.github.io/VoxelGamesLibv2/mvn-repo" }
-    maven { url "https://hub.spigotmc.org/nexus/content/groups/public/" }
-    maven { url "https://oss.sonatype.org/content/groups/public/" }
-    maven { url "https://repo.aikar.co/content/groups/aikar/" }
-    maven { url "https://raw.githubusercontent.com/allanmc/JSkills/mvn-repo/" }
-    maven { url "http://dl.bintray.com/etienne/java-utilities" }
-    maven { url "http://repo.bstats.org/content/repositories/releases/" }
-    maven { url "http://repo.dmulloy2.net/content/groups/public/" }
-    maven { url "http://repo.maven.apache.org/maven2" }
-    maven { url "http://repo.onarandombox.com/content/groups/public/" }
-    maven { url "http://repo.inventivetalent.org/content/repositories/snapshots/" }
-}
-
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-
-    compileOnly group: 'org.spigotmc', name: 'spigot-api', version: '1.12-R0.1-SNAPSHOT'
-    compileOnly group: 'com.voxelgameslib', name: 'voxelgameslib', version: '2.0-SNAPSHOT', changing: true
-    compileOnly group: 'org.projectlombok', name: 'lombok', 'version': '1.16.0'
-}
-
-processResources {
-    filter ReplaceTokens, tokens: [
-            'version': project.version
-    ]
-}
-
-compileJava {
-    options.compilerArgs += ["-parameters"]
-    options.fork = true
-    options.forkOptions.executable = 'javac'
+    compileOnly rootProject
 }
 
 task copyToServer(dependsOn: 'jar', type: Copy) {
     from 'build/libs/1vs1-1.0-SNAPSHOT.jar'
     into '../testserver/plugins/'
-}
-
-task javadocJar(type: Jar) {
-    classifier 'javadoc'
-    from javadoc
-}
-
-task sourcesJar(type: Jar) {
-    classifier 'sources'
-    from sourceSets.main.allSource
-}
-
-javadoc {
-    options.stylesheetFile = new File(projectDir, "src/main/javadocs/javadoc_stylesheet.css")
-}
-
-configurations.all {
-    // Check for updates every build
-    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 task createPom() {
