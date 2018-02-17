@@ -2,6 +2,7 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import com.voxelgameslib.voxelgameslib.GameConstants;
 import com.voxelgameslib.voxelgameslib.feature.features.AutoRespawnFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.BleedFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.GameModeFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.KitFeature;
@@ -52,5 +53,8 @@ public class OneVsOnePhase extends TimedPhase {
 
         MobFeature mobFeature = getGame().createFeature(MobFeature.class, this);
         addFeature(mobFeature);
+
+        BleedFeature bleedFeature = getGame().createFeature(BleedFeature.class, this);
+        addFeature(bleedFeature);
     }
 }

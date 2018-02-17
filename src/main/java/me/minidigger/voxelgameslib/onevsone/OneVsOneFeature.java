@@ -22,7 +22,7 @@ import jskills.Rating;
 public class OneVsOneFeature extends AbstractFeature {
 
     @Override
-    public void start() {
+    public void enable() {
         DuelFeature duelFeature = getPhase().getFeature(DuelFeature.class);
         Rating r1 = duelFeature.getOne().getRating(getPhase().getGame().getGameMode());
         Rating r2 = duelFeature.getTwo().getRating(getPhase().getGame().getGameMode());
