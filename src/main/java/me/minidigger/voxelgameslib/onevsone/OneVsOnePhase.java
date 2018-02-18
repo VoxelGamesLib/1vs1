@@ -1,6 +1,7 @@
 package me.minidigger.voxelgameslib.onevsone;
 
 import com.voxelgameslib.voxelgameslib.GameConstants;
+import com.voxelgameslib.voxelgameslib.condition.conditions.DuelVictoryCondition;
 import com.voxelgameslib.voxelgameslib.feature.features.AutoRespawnFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.BleedFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
@@ -56,5 +57,8 @@ public class OneVsOnePhase extends TimedPhase {
 
         BleedFeature bleedFeature = getGame().createFeature(BleedFeature.class, this);
         addFeature(bleedFeature);
+
+        DuelVictoryCondition duelVictoryCondition = getGame().createVictoryCondition(DuelVictoryCondition.class, this);
+        addVictoryCondition(duelVictoryCondition);
     }
 }
