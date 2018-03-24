@@ -2,6 +2,9 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import java.util.UUID;
 
+import com.voxelgameslib.voxelgameslib.lang.Lang;
+import com.voxelgameslib.voxelgameslib.lang.Locale;
+import com.voxelgameslib.voxelgameslib.lang.Translatable;
 import com.voxelgameslib.voxelgameslib.stats.Stat;
 import com.voxelgameslib.voxelgameslib.stats.StatFormatter;
 import com.voxelgameslib.voxelgameslib.stats.StatInstance;
@@ -10,20 +13,20 @@ import com.voxelgameslib.voxelgameslib.user.User;
 
 public enum OneVsOneStats implements Trackable {
 
-    KILLS("Kills", "killed {val} enemies.", true, StatFormatter.INT),
-    GAMES("Games", "played {val} times.", true, StatFormatter.INT);
+    KILLS(OneVsOneLangKey.STAT_KILLS_NAME, OneVsOneLangKey.STAT_KILLS_TEXT, true, StatFormatter.INT),
+    GAMES(OneVsOneLangKey.STAT_GAMES_NAME, OneVsOneLangKey.STAT_GAMES_TEXT, true, StatFormatter.INT);
 
     private Stat stat;
-    private String displayName;
-    private String text;
+    private Translatable displayName;
+    private Translatable text;
     private boolean announce;
     private StatFormatter statFormatter;
 
-    OneVsOneStats(String displayName, String text, boolean announce) {
+    OneVsOneStats(Translatable displayName, Translatable text, boolean announce) {
         this(displayName, text, announce, StatFormatter.DOUBLE);
     }
 
-    OneVsOneStats(String displayName, String text, boolean announce, StatFormatter statFormatter) {
+    OneVsOneStats(Translatable displayName, Translatable text, boolean announce, StatFormatter statFormatter) {
         this.displayName = displayName;
         this.text = text;
         this.announce = announce;
@@ -56,12 +59,12 @@ public enum OneVsOneStats implements Trackable {
     }
 
     @Override
-    public String getDisplayName() {
+    public Translatable getDisplayName() {
         return displayName;
     }
 
     @Override
-    public String getText() {
+    public Translatable getText() {
         return text;
     }
 
@@ -71,8 +74,8 @@ public enum OneVsOneStats implements Trackable {
     }
 
     @Override
-    public String formatLong(double val) {
-        return text.replace("{val}", statFormatter.format(val));
+    public String formatLong(double val, Locale locale) {
+        return Lang.string(text, locale, statFormatter.format(val));
     }
 
     @Override
@@ -102,7 +105,7 @@ public enum OneVsOneStats implements Trackable {
     }
 
     @Override
-    public String getPrefix(){
+    public String getPrefix() {
         return "ONEVSONE";
     }
 }

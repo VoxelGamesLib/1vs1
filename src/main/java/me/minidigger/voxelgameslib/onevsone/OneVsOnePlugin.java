@@ -2,10 +2,12 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import com.google.inject.Singleton;
 
+import java.io.File;
 import javax.inject.Inject;
 
 import com.voxelgameslib.voxelgameslib.game.GameHandler;
 import com.voxelgameslib.voxelgameslib.game.GameMode;
+import com.voxelgameslib.voxelgameslib.lang.LangHandler;
 import com.voxelgameslib.voxelgameslib.module.Module;
 import com.voxelgameslib.voxelgameslib.module.ModuleHandler;
 import com.voxelgameslib.voxelgameslib.module.ModuleInfo;
@@ -23,6 +25,8 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     private GameHandler gameHandler;
     @Inject
     private StatsHandler statsHandler;
+    @Inject
+    private LangHandler langHandler;
 
     @Override
     public void onLoad() {
@@ -33,6 +37,7 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     public void enable() {
         gameHandler.registerGameMode(GAMEMODE);
         statsHandler.registerTrackable(OneVsOneStats.KILLS);
+        langHandler.registerExternalLangProvider(OneVsOneLangKey.DUMMY, new File(getDataFolder(), "lang"));
     }
 
     @Override
