@@ -31,6 +31,9 @@ public class OneVsOneFeature extends AbstractFeature {
                 r1.getMean() + "(" + r1.getStandardDeviation() + ")] duels "
                 + duelFeature.getTwo().getRawDisplayName() + "[" +
                 r2.getMean() + "(" + r2.getStandardDeviation() + ")]");
+
+        OneVsOneStats.GAMES.getInstance(duelFeature.getOne()).increment();
+        OneVsOneStats.GAMES.getInstance(duelFeature.getTwo()).increment();
     }
 
     @Override

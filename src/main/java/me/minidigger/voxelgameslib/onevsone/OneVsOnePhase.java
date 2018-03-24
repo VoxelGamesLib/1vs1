@@ -58,7 +58,7 @@ public class OneVsOnePhase extends TimedPhase {
         BleedFeature bleedFeature = getGame().createFeature(BleedFeature.class, this);
         addFeature(bleedFeature);
 
-        DuelVictoryCondition duelVictoryCondition = getGame().createVictoryCondition(DuelVictoryCondition.class, this);
+        OneVsOneVictoryCondition duelVictoryCondition = getGame().createVictoryCondition(OneVsOneVictoryCondition.class, this);
         addVictoryCondition(duelVictoryCondition);
     }
 }

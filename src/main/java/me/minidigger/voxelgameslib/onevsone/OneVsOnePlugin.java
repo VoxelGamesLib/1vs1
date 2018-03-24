@@ -9,6 +9,7 @@ import com.voxelgameslib.voxelgameslib.game.GameMode;
 import com.voxelgameslib.voxelgameslib.module.Module;
 import com.voxelgameslib.voxelgameslib.module.ModuleHandler;
 import com.voxelgameslib.voxelgameslib.module.ModuleInfo;
+import com.voxelgameslib.voxelgameslib.stats.StatsHandler;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +21,8 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
 
     @Inject
     private GameHandler gameHandler;
+    @Inject
+    private StatsHandler statsHandler;
 
     @Override
     public void onLoad() {
@@ -29,6 +32,7 @@ public class OneVsOnePlugin extends JavaPlugin implements Module {
     @Override
     public void enable() {
         gameHandler.registerGameMode(GAMEMODE);
+        statsHandler.registerTrackable(OneVsOneStats.KILLS);
     }
 
     @Override
