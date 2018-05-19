@@ -10,6 +10,7 @@ import com.voxelgameslib.voxelgameslib.feature.features.KitFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.MapFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.MobFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.SpawnFeature;
+import com.voxelgameslib.voxelgameslib.feature.features.SpectatorFeature;
 import com.voxelgameslib.voxelgameslib.phase.TimedPhase;
 
 import org.bukkit.GameMode;
@@ -57,6 +58,9 @@ public class OneVsOnePhase extends TimedPhase {
 
         BleedFeature bleedFeature = getGame().createFeature(BleedFeature.class, this);
         addFeature(bleedFeature);
+
+        SpectatorFeature spectatorFeature = getGame().createFeature(SpectatorFeature.class, this);
+        addFeature(spectatorFeature);
 
         OneVsOneVictoryCondition duelVictoryCondition = getGame().createVictoryCondition(OneVsOneVictoryCondition.class, this);
         addVictoryCondition(duelVictoryCondition);
