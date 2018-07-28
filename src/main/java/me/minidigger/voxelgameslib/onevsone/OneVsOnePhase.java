@@ -1,7 +1,6 @@
 package me.minidigger.voxelgameslib.onevsone;
 
 import com.voxelgameslib.voxelgameslib.GameConstants;
-import com.voxelgameslib.voxelgameslib.condition.conditions.DuelVictoryCondition;
 import com.voxelgameslib.voxelgameslib.feature.features.AutoRespawnFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.BleedFeature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;

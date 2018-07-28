@@ -2,24 +2,21 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 
-import com.voxelgameslib.voxelgameslib.event.GameEvent;
 import com.voxelgameslib.voxelgameslib.feature.AbstractFeature;
 import com.voxelgameslib.voxelgameslib.feature.Feature;
 import com.voxelgameslib.voxelgameslib.feature.features.DuelFeature;
-
-import org.bukkit.event.entity.PlayerDeathEvent;
-
-import lombok.extern.java.Log;
 
 import jskills.Rating;
 
 /**
  * Created by Martin on 28.01.2017.
  */
-@Log
 public class OneVsOneFeature extends AbstractFeature {
+
+    private static final Logger log = Logger.getLogger(OneVsOneFeature.class.getName());
 
     @Override
     public void enable() {
