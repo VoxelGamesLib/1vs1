@@ -1,5 +1,5 @@
 name: OneVsOne
-version: @version@
+version: ${version.number}
 main: me.minidigger.voxelgameslib.onevsone.OneVsOnePlugin
 authors: [MiniDigger]
 depend: [VoxelGamesLib]

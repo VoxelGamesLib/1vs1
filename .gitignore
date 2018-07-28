@@ -1,10 +1,5 @@
 # Maven
 target/
-
-# Gradle
-.gradle/
-build/
-
 # IDEA
 *.iml
 .idea/
@@ -12,18 +7,9 @@ build/
 # Java
 *.jar
 
-# JRebel <3
-rebel.xml
-
-# allow gradle wrapper
-!*gradle-wrapper.jar
-
 # ignore ci stuff
 /deploy-stuff
 .gradletasknamecache
-
-#nobody likes you mvn ;)
-pom.xml
 
 # these are generated and are unneccesarry
 package-info.java
