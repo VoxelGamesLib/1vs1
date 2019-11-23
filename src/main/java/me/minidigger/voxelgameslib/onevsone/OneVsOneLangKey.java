@@ -3,8 +3,8 @@ package me.minidigger.voxelgameslib.onevsone;
 import java.util.UUID;
 import javax.annotation.Nonnull;
 
-import com.voxelgameslib.voxelgameslib.lang.ExternalTranslatable;
-import com.voxelgameslib.voxelgameslib.lang.Translatable;
+import com.voxelgameslib.voxelgameslib.internal.lang.ExternalTranslatable;
+import com.voxelgameslib.voxelgameslib.internal.lang.Translatable;
 
 public enum OneVsOneLangKey implements ExternalTranslatable {
 

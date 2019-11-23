@@ -2,14 +2,14 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import java.util.UUID;
 
-import com.voxelgameslib.voxelgameslib.lang.Lang;
-import com.voxelgameslib.voxelgameslib.lang.Locale;
-import com.voxelgameslib.voxelgameslib.lang.Translatable;
-import com.voxelgameslib.voxelgameslib.stats.Stat;
-import com.voxelgameslib.voxelgameslib.stats.StatFormatter;
-import com.voxelgameslib.voxelgameslib.stats.StatInstance;
-import com.voxelgameslib.voxelgameslib.stats.Trackable;
-import com.voxelgameslib.voxelgameslib.user.User;
+import com.voxelgameslib.voxelgameslib.internal.lang.Lang;
+import com.voxelgameslib.voxelgameslib.internal.lang.Locale;
+import com.voxelgameslib.voxelgameslib.internal.lang.Translatable;
+import com.voxelgameslib.voxelgameslib.api.stats.Stat;
+import com.voxelgameslib.voxelgameslib.api.stats.StatFormatter;
+import com.voxelgameslib.voxelgameslib.api.stats.StatInstance;
+import com.voxelgameslib.voxelgameslib.api.stats.Trackable;
+import com.voxelgameslib.voxelgameslib.components.user.User;
 
 public enum OneVsOneStats implements Trackable {
 

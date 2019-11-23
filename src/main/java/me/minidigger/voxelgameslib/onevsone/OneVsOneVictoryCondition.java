@@ -2,9 +2,9 @@ package me.minidigger.voxelgameslib.onevsone;
 
 import javax.annotation.Nonnull;
 
-import com.voxelgameslib.voxelgameslib.condition.VictoryConditionInfo;
-import com.voxelgameslib.voxelgameslib.condition.conditions.DuelVictoryCondition;
-import com.voxelgameslib.voxelgameslib.event.GameEvent;
+import com.voxelgameslib.voxelgameslib.api.condition.VictoryConditionInfo;
+import com.voxelgameslib.voxelgameslib.api.condition.conditions.DuelVictoryCondition;
+import com.voxelgameslib.voxelgameslib.api.event.GameEvent;
 
 import org.bukkit.event.entity.PlayerDeathEvent;
 
