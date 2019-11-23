@@ -6,39 +6,39 @@ image: maven:3-jdk-8
 
 cache:
   paths:
-  - .m2/repository
+    - .m2/repository
 
 validate:
   stage: build
   script:
-  - 'mvn $MAVEN_CLI_OPTS test-compile'
+    - 'mvn $MAVEN_CLI_OPTS test-compile'
 
 verify:
   stage: test
   script:
-  - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
+    - 'mvn $MAVEN_CLI_OPTS verify site site:stage'
   except:
-  - master
+    - master
 
 deploy:
   stage: test
   script:
-  - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
+    - 'mvn $MAVEN_CLI_OPTS deploy site site:stage'
   only:
-  - master
+    - master
   artifacts:
     paths:
-    - target/staging
+      - target/staging
 
 pages:
   image: busybox:latest
   stage: deploy
   script:
-  - mv target/staging public
+    - mv target/staging public
   dependencies:
-  - deploy
+    - deploy
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
